@@ -8,7 +8,7 @@ const start = async () => {
   );
   console.log("> Added file:", cid.toString());
 
-  const res = await ipfsNode.fetch(cid);
+  const res: Buffer = await ipfsNode.fetch(cid);
   console.log("> Added file contents:", new TextDecoder().decode(res));
 
   const peerid = ipfsNode.node.libp2p.peerId;
