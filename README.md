@@ -5,6 +5,6 @@ A repository with an example of using the [ipfs-node](https://github.com/0xdino/
 Run to view the results:
 
 ```bash
-yarn install
-yarn start
+pnpm install
+pnpm start
 ```
