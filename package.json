@@ -11,10 +11,10 @@
     "start": "tsx ./index.ts"
   },
   "devDependencies": {
-    "@types/node": "^20.10.5",
+    "@types/node": "^20.10.6",
     "tsx": "^4.7.0"
   },
   "dependencies": {
-    "ipfs-node": "^0.0.3"
+    "ipfs-node": "^0.0.6"
   }
 }
