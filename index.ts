@@ -1,7 +1,9 @@
 import { run, IpfsNode } from 'ipfs-node';
 
 const start = async () => {
-  const ipfsNode: IpfsNode = await run();
+  const ipfsNode: IpfsNode = await run({
+    url: new URL(process.env.IPFS_API || ''),
+  });
 
   const random =
     new Date().getTime().toString() + (Math.random() * 2 ** 64).toString(16);
