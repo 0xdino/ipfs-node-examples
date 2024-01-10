@@ -1,0 +1,20 @@
+version: '3.5'
+
+services:
+  ipfs:
+    image: ipfs/kubo
+    restart: unless-stopped
+    container_name: ipfs
+    ports:
+      - '4001:4001/tcp'
+      - '4001:4001/udp'
+      - '5001:5001'
+      - '8080:8080'
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ipfs-node
+    depends_on:
+      - ipfs

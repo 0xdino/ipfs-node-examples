@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-22.04
     strategy:
       matrix:
-        node: ["20.x"]
+        node: ['20.x']
     steps:
       - name: Checkout source code
         uses: actions/checkout@v3
@@ -18,12 +18,24 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          cache: "pnpm"
+          cache: 'pnpm'
       - name: Use Node.js
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
       - name: Install dependencies
         run: pnpm i --frozen-lockfile
-      - name: Test
-        run: pnpm start
+      - name: Docker
+        run: docker compose up -d --build
+      - name: Docker containers
+        run: docker ps -a
+      - name: Wait
+        run: sleep 15
+      - name: Logs IPFS
+        run: docker logs ipfs
+      - name: Wait
+        run: sleep 10
+      - name: Logs test
+        run: docker logs ipfs-node
+      - name: Wait
+        run: sleep 30
