@@ -10,6 +10,7 @@ const start = async () => {
 
   const { cid } = await ipfsNode.push(
     Buffer.from(new TextEncoder().encode(random)),
+    { cidVersion: 0 },
   );
   console.log('> Added file:', cid.toString(), random);
 
@@ -18,6 +19,12 @@ const start = async () => {
 
   const peerid = ipfsNode.node.libp2p.peerId;
   console.log('> PeerID:', peerid);
+
+  console.log(
+    '> List length:',
+    (await ipfsNode.ls('QmVaZb25GyfxJrtCKSKNKtx7JZ5dJQ9bRq8kSP7ddovbaX'))
+      .length,
+  );
 
   return ipfsNode.node;
 };
