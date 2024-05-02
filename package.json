@@ -12,11 +12,11 @@
     "start:prod": "cross-env IPFS_API=http://ipfs:5001 tsx ./index.ts"
   },
   "devDependencies": {
-    "@types/node": "^20.11.30",
+    "@types/node": "^20.12.8",
     "cross-env": "^7.0.3",
-    "tsx": "^4.7.1"
+    "tsx": "^4.8.2"
   },
   "dependencies": {
-    "ipfs-node": "^1.0.2"
+    "ipfs-node": "^1.0.3"
   }
 }
